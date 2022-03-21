@@ -5,6 +5,7 @@ import Vista.AppView;
 *   OnlineStore es la clase principal de nuestra aplicacion y contiene el main()
 *   Instanciamos la clase OnlineStore asignandola a la variable app
 *   Llamamos la funcion inicio()
+* prueba git luisa
 */
 
 public class OnlineStore {
