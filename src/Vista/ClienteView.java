@@ -21,7 +21,7 @@ public class ClienteView {
 
     }
 
-    public Cliente lecturaCliente() {
+    public static Cliente lecturaCliente() {
         Scanner sc = new Scanner(System.in);
         System.out.println("NIF:");
         String nif = sc.nextLine();
@@ -43,6 +43,7 @@ public class ClienteView {
             System.out.println("NIF: " + cliente.getNif());
             System.out.println("Email: " + cliente.getEmail());
             System.out.println("Vive en: " + cliente.getDomicilio());
+            System.out.println("___________________________");
         }
     }
 }

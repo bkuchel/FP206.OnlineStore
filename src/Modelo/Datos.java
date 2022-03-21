@@ -19,14 +19,16 @@ public class Datos {
     }
 }
 
+
 /*
-import Vista.InterfazView;
+package Modelo;
+import Vista.AppView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Datos {
-    public InterfazView vista;
+    public AppView vista;
     private ArrayList<Articulo> articulos;
     private ArrayList<Cliente> clientes;
     private ArrayList<Pedido> pedidos;
