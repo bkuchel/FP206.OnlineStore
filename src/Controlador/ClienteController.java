@@ -1,8 +1,13 @@
 package Controlador;
 
+import Modelo.Cliente;
+import Modelo.Datos;
 import Vista.ClienteView;
 
+import java.util.List;
+
 public class ClienteController {
+    Datos bbdd = new Datos();
 
     public void subMenu() {
         ClienteView menuCliente = new ClienteView();
@@ -10,10 +15,13 @@ public class ClienteController {
 
         switch (opcion) {
             case 1:
-                System.out.println("1 Gestionar clientes");
+                Cliente cliente = menuCliente.lecturaCliente();
+                bbdd.addCliente(cliente);
+
                 break;
             case 2:
-                System.out.println("1 Gestionar clientes");
+                List<Cliente> datos = bbdd.getClientes();
+                menuCliente.mostrarClientes(datos);
                 break;
             case 3:
                 OnlineStore volver = new OnlineStore();
