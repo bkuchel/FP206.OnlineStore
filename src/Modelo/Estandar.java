@@ -2,8 +2,19 @@ package Modelo;
 
 public class Estandar extends Cliente{
 
+    public Estandar(String nif, String nombre, String email, String domicilio) {
 
-    public Estandar(String email, String nombre, String domicilio, String nif) {
-        super(email, nombre, domicilio, nif);
+        super(nif, nombre, email, domicilio);
     }
+
+    @Override
+    public String toString(){
+        return  "Tipo de cliente: Estandar" + "\n" +
+                "NIF: " + this.getNif() + "\n" +
+                "Nombre: " + this.getNombre() + "\n" +
+                "Email: " + this.getEmail() + "\n" +
+                "Domicilio: " + this.getDomicilio() + "\n";
+
+    }
+
 }

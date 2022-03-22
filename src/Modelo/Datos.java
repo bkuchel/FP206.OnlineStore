@@ -4,22 +4,40 @@ import java.util.List;
 
 public class Datos {
 
-    private List<Cliente> datosCliente = new ArrayList<>();
-    private List<Pedido> datosPedidos = new ArrayList<>();
-    private List<Articulo> datosArticulo = new ArrayList<>();
+    private ArrayList<Cliente> clientes;
 
-    
-    public boolean agregarCliente(Cliente cliente) {
-        datosCliente.add(cliente);
+    public Datos() {
+
+        //articulos = new ArrayList<Articulo>();
+        clientes=new ArrayList<Cliente>();
+        //pedidos=new ArrayList<Pedido>();
+    }
+
+    public void agregarCliente(Cliente cliente) {
+        clientes.add(cliente);
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+}
+/*
+    public boolean agregarPremium(Premium cliente) {
+        datosClientes.add(cliente);
         return true;
     }
 
-    public List<Cliente> obtenerClientes() {
-        return datosCliente;
+
+    public List<Estandar> obtenerEstandar() {
+        return datosEstandar;
+    }
+
+    public List<Premium> obtenerPremium() {
+        return datosPremium;
     }
 }
 
-
+*/
 /*
 package Modelo;
 import Vista.AppView;

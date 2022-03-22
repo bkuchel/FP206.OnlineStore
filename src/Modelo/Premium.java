@@ -2,18 +2,33 @@ package Modelo;
 
 public class Premium extends Cliente{
 
-    private int cuota;
+    private double cuota;
+    private double descuento;
 
-    public Premium(String email, String nombre, String domicilio, String nif) {
-        super(email, nombre, domicilio, nif);
-        this.cuota=cuota;
+    public Premium (String nif, String nombre, String email, String domicilio) {
+
+        super(nif, nombre, email, domicilio);
+        this.cuota = 30;
+        this.descuento = 20;
     }
 
-    public int getCuota() {
-        return cuota;
+    public double getCuota() {
+        return cuota * 12;
     }
 
-    public void setCuota(int cuota) {
-        this.cuota = cuota;
+    public double descuentoEnvio(double totalPedido) {
+        return totalPedido - (totalPedido * 0.2);
+    }
+
+    @Override
+    public String toString(){
+        return  "Tipo de cliente: Premium" + "\n" +
+                "NIF: " + this.getNif() + "\n" +
+                "Nombre: " + this.getNombre() + "\n" +
+                "Email: " + this.getEmail() + "\n" +
+                "Domicilio: " + this.getDomicilio() + "\n"+
+                "Cuota: " + this.cuota + "\n" +
+                "Descuento en el envio: " + this.descuento;
+
     }
 }
