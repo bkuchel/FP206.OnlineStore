@@ -1,13 +1,13 @@
 package Modelo;
 
-public class Articulo {
+public class Producto {
     private String codigo;
     private String nombre;
     private float precioVenta;
     private float gastosEnvio;
     private int tiempoPrep;
 
-    public Articulo(String codigo, String nombre, float precioVenta, float gastosEnvio, int tiempoPrep){
+    public Producto(String codigo, String nombre, float precioVenta, float gastosEnvio, int tiempoPrep){
         this.codigo = codigo;
         this.nombre = nombre;
         this.precioVenta = precioVenta;
@@ -53,5 +53,15 @@ public class Articulo {
 
     public void setTiempoPrep(int tiempoPrep) {
         this.tiempoPrep = tiempoPrep;
+    }
+
+    @Override
+    public String toString(){
+        return  "Codigo producto: " + this.getCodigo() + "\n" +
+                "Nombre producto: " + this.getNombre() + "\n" +
+                "Precio venta: " + this.getPrecioVenta() + "\n" +
+                "Gastos envio:  " + this.getGastosEnvio() + "\n" +
+                "Tiempo preparo:  " + this.getTiempoPrep() + "\n";
+
     }
 }

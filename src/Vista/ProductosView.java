@@ -1,5 +1,9 @@
 package Vista;
 
+import Modelo.Producto;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProductosView {
@@ -15,4 +19,42 @@ public class ProductosView {
 
         return opcion;
     }
-}
+
+    public static List lecturaProducto() {
+
+        List parametros = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Codigo producto:");
+        String codigo = sc.nextLine();
+        parametros.add(codigo);
+
+        System.out.println("Nombre producto:");
+        String nombre = sc.nextLine();
+        parametros.add(nombre);
+
+        System.out.println("Precio de venta:");
+        String precioVenta = sc.nextLine();
+        parametros.add(precioVenta);
+
+        System.out.println("Gastos de envio:");
+        String gastosEnvio = sc.nextLine();
+        parametros.add(gastosEnvio);
+
+        System.out.println("Tiempo preparo:");
+        String tiempoPrep = sc.nextLine();
+        parametros.add(tiempoPrep);
+
+        return (parametros);
+
+    }
+
+    public void mostrarProductos(List<Producto> productoLista) {
+        System.out.println("PRODUCTOS");
+        for (Producto producto : productoLista) {
+                System.out.println(producto.toString());
+                System.out.println("___________________________");
+            }
+        }
+    }
+

@@ -1,20 +1,28 @@
 package Controlador;
 
-import Vista.ClienteView;
+import Modelo.Producto;
+import Modelo.Datos;
 import Vista.ProductosView;
 
+import java.util.List;
+
 public class ProductosController {
+    Datos bbdd = new Datos();
+    ProductosView menuProducto = new ProductosView();
+    OnlineStore volver = new OnlineStore();
 
     public void subMenu() {
-        ProductosView menuProductos = new  ProductosView();
-        int opcion = menuProductos.mostrarMenu();
+
+        int opcion = menuProducto.mostrarMenu();
 
         switch (opcion) {
             case 1:
-                System.out.println("1 Gestionar productos");
+                nuevoProducto();
+                subMenu();
                 break;
             case 2:
-                System.out.println("1 Gestionar clientes");
+                verProductos();
+                subMenu();
                 break;
             case 3:
                 OnlineStore volver = new OnlineStore();
@@ -22,9 +30,28 @@ public class ProductosController {
             default:
                 System.out.println("*** OPCION NO DISPONIBLE ***\n");
                 subMenu();
+        }
 
         }
 
+        public void nuevoProducto() {
+            List parametros = menuProducto.lecturaProducto();
 
-    }
+            String codigo = parametros.get(0).toString();
+            String nombre = parametros.get(1).toString();
+            float precioVenta = Float.parseFloat(parametros.get(2).toString());
+            float gastosEnvio = Float.parseFloat(parametros.get(3).toString());
+            int tiempoPrep = Integer.parseInt(parametros.get(3).toString());
+
+            Producto datosProducto = new Producto(codigo, nombre, precioVenta, gastosEnvio, tiempoPrep);
+            bbdd.agregarProducto(datosProducto);
+        }
+
+
+        public void verProductos() {
+            List<Producto> datos = bbdd.getProductos();
+            menuProducto.mostrarProductos(datos);
+        }
+
+
 }

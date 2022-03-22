@@ -49,18 +49,6 @@ public class ClienteView {
         return (parametros);
 
     }
-/*
-    public void mostrarClientes(List<Cliente> clienteLista) {
-        System.out.println("CLIENTES");
-        for (Cliente cliente: clienteLista){
-            System.out.println("Nombre: " + cliente.getNombre());
-            System.out.println("NIF: " + cliente.getNif());
-            System.out.println("Email: " + cliente.getEmail());
-            System.out.println("Vive en: " + cliente.getDomicilio());
-            System.out.println("___________________________");
-        }
-    }
-*/
 
     public void mostrarClientes(List<Cliente> clienteLista) {
         System.out.println("CLIENTES");
@@ -72,8 +60,6 @@ public class ClienteView {
                 System.out.println(cliente.toString());
                 System.out.println("___________________________");
             }
-
-
         }
     }
 }
