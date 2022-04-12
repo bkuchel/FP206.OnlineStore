@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 /* Vista del menu principal de nuestra aplicacion
 *  menuPrincipal() es una funcion que imprime las opciones en pantalla, escanea un numero y lo retorna
+* Iniciando producto 3
 * */
 
 public class AppView {
