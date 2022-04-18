@@ -25,10 +25,6 @@ public class ProductosView {
         List parametros = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Codigo producto:");
-        String codigo = sc.nextLine();
-        parametros.add(codigo);
-
         System.out.println("Nombre producto:");
         String nombre = sc.nextLine();
         parametros.add(nombre);

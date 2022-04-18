@@ -42,24 +42,24 @@ public class ClienteController {
     public void nuevoEstandar() {
 
         List parametros = menuCliente.lecturaCliente();
-        String email = parametros.get(0).toString();
+        String nif = parametros.get(0).toString();
         String nombre = parametros.get(1).toString();
-        String domicilio = parametros.get(2).toString();
-        String nif = parametros.get(3).toString();
+        String email = parametros.get(2).toString();
+        String domicilio = parametros.get(3).toString();
 
-        Estandar datosEstandar = new Estandar(email, nombre, domicilio, nif);
+        Estandar datosEstandar = new Estandar(nif, nombre, email, domicilio);
         bbdd.agregarCliente(datosEstandar);
     }
 
     public void nuevoPremium() {
 
         List parametros = menuCliente.lecturaCliente();
-        String email = parametros.get(0).toString();
+        String nif = parametros.get(0).toString();
         String nombre = parametros.get(1).toString();
-        String domicilio = parametros.get(2).toString();
-        String nif = parametros.get(3).toString();
+        String email = parametros.get(2).toString();
+        String domicilio = parametros.get(3).toString();
 
-        Premium datosPremium = new Premium(email, nombre, domicilio, nif);
+        Premium datosPremium = new Premium(nif, nombre, email, domicilio);
         bbdd.agregarCliente(datosPremium);
     }
 

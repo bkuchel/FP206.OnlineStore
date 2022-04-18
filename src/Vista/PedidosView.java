@@ -1,5 +1,9 @@
 package Vista;
 
+import Modelo.Pedido;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class PedidosView {
@@ -17,27 +21,32 @@ public class PedidosView {
         return opcion;
     }
 
-    public static String lecturaCodigo() {
-        System.out.println("Codigo de pedido:");
-        String codigoPedido = sc.nextLine();
-        return codigoPedido;
+    public static List lecturaPedido() {
+
+        List parametros = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("NUEVO PEDIDO");
+        System.out.println("Introduce el NIF del cliente:");
+        String nif = sc.nextLine();
+        parametros.add(nif);
+
+        System.out.println("Introduce el codigo del producto");
+        String codigo = sc.nextLine();
+        parametros.add(codigo);
+
+        System.out.println("Introduce la cantidad:");
+        String cantidad = sc.nextLine();
+        parametros.add(cantidad);
+
+        return (parametros);
+
     }
 
-    public static String lecturaCodCliente() {
-        System.out.println("Busca el cliente por codigo:");
-        String codigoCliente = sc.nextLine();
-        return codigoCliente;
-    }
-
-    public static String lecturaCodProducto() {
-        System.out.println("Busca el producto por codigo:");
-        String codigoProducto = sc.nextLine();
-        return codigoProducto;
-    }
-
-    public static Integer lecturaCantidad() {
-        System.out.println("Cantidad producto:");
-        Integer cantidadPedido = sc.nextInt();
-        return cantidadPedido;
+    public void mostrarPedidos(List<Pedido> pedidoLista) {
+        System.out.println("PEDIDOS");
+        for (Pedido pedido : pedidoLista) {
+            System.out.println(pedido.toString());
+            System.out.println("___________________________");
+        }
     }
 }

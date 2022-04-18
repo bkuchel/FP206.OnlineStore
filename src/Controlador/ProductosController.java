@@ -37,13 +37,13 @@ public class ProductosController {
         public void nuevoProducto() {
             List parametros = menuProducto.lecturaProducto();
 
-            String codigo = parametros.get(0).toString();
-            String nombre = parametros.get(1).toString();
-            float precioVenta = Float.parseFloat(parametros.get(2).toString());
-            float gastosEnvio = Float.parseFloat(parametros.get(3).toString());
+            //String codigo = parametros.get(0).toString();
+            String nombre = parametros.get(0).toString();
+            float precioVenta = Float.parseFloat(parametros.get(1).toString());
+            float gastosEnvio = Float.parseFloat(parametros.get(2).toString());
             int tiempoPrep = Integer.parseInt(parametros.get(3).toString());
 
-            Producto datosProducto = new Producto(codigo, nombre, precioVenta, gastosEnvio, tiempoPrep);
+            Producto datosProducto = new Producto(null,nombre, precioVenta, gastosEnvio, tiempoPrep);
             bbdd.agregarProducto(datosProducto);
         }
 

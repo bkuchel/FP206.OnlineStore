@@ -7,8 +7,9 @@ public class Producto {
     private float gastosEnvio;
     private int tiempoPrep;
 
+    public Producto() {};
     public Producto(String codigo, String nombre, float precioVenta, float gastosEnvio, int tiempoPrep){
-        this.codigo = codigo;
+        this.codigo = null;
         this.nombre = nombre;
         this.precioVenta = precioVenta;
         this.gastosEnvio = gastosEnvio;

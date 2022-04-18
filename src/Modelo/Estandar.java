@@ -2,9 +2,12 @@ package Modelo;
 
 public class Estandar extends Cliente{
 
+    public Estandar() {}
     public Estandar(String nif, String nombre, String email, String domicilio) {
 
         super(nif, nombre, email, domicilio);
+        super.setCuota(0);
+        super.setDescuento(0);
     }
 
     @Override

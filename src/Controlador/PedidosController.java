@@ -1,13 +1,11 @@
 package Controlador;
 
-import Modelo.Cliente;
-import Modelo.Datos;
-import Modelo.Pedido;
-import Modelo.Producto;
+import Modelo.*;
 import Vista.PedidosView;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class PedidosController {
     Datos bbdd = new Datos();
@@ -24,7 +22,8 @@ public class PedidosController {
                 subMenu();
                 break;
             case 2:
-                System.out.println("TODO");
+                verPedidos();
+                subMenu();
                 break;
             case 3:
                 OnlineStore volver = new OnlineStore();
@@ -37,60 +36,15 @@ public class PedidosController {
     }
 
     public void nuevoPedido() {
-        String codigoPedido = menuPedido.lecturaCodigo();
 
-        String codigoCliente = menuPedido.lecturaCodCliente();
-        String cliente = buscarCliente(codigoCliente);
+        List parametros = menuPedido.lecturaPedido();
+        bbdd.agregarPedido(parametros);
+        }
 
-        String codigoProducto = menuPedido.lecturaCodProducto();
-        Integer cantidad = menuPedido.lecturaCantidad();
-        String producto = buscarProducto(codigoProducto);
-
-        Pedido datosPedido = new Pedido(codigoPedido, cliente, producto, cantidad);
+    public void verPedidos() {
+        List<Pedido> datos = bbdd.getPedidos();
+        menuPedido.mostrarPedidos(datos);
     }
 
-    public String buscarCliente(String nifCliente) {
-        ArrayList clientes = bbdd.getClientes();
-
-
-        Iterator<Cliente> iter = clientes.iterator();
-        String nombre = iter.next().getNombre();
-        boolean encontrado = false;
-
-
-        while (iter.hasNext()) {
-            if (iter.next().getNif().equals(nifCliente)) {
-                encontrado = true;
-                nombre = iter.next().getNombre();
-            }
-        }
-        if (!encontrado) {
-            return "*** Cliente no encontrado\n";
-        } else {
-            return nombre;
-        }
-    }
-
-    public String buscarProducto(String codProducto) {
-        ArrayList productos = bbdd.getProductos();
-
-
-        Iterator<Producto> iter = productos.iterator();
-        String nombre = iter.next().getNombre();
-        boolean encontrado = false;
-
-
-        while (iter.hasNext()) {
-            if (iter.next().getCodigo().equals(codProducto)) {
-                encontrado = true;
-                nombre = iter.next().getNombre();
-            }
-        }
-        if (!encontrado) {
-            return "*** Producto no encontrado\n";
-        } else {
-            return nombre;
-        }
-    }
     }
 
